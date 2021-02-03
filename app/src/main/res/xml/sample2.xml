@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <!--    app:motionInterpolator="bounce"-->
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="3000">
+
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/view" />
+
+        <!--        <OnSwipe-->
+        <!--            app:dragDirection="dragDown"-->
+        <!--            app:touchAnchorId="@id/view" />-->
+
+        <KeyFrameSet>
+
+            <KeyAttribute
+                android:rotation="360"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:framePosition="50"
+                app:motionTarget="@id/view" />
+
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/view"
+                app:pathMotionArc="flip"
+                app:percentX="0.75"
+                app:percentY="0.25" />
+
+            <!--            <KeyCycle-->
+            <!--                android:rotation="0"-->
+            <!--                app:framePosition="0"-->
+            <!--                app:motionTarget="@id/view"-->
+            <!--                app:wavePeriod="3"-->
+            <!--                app:waveShape="sin" />-->
+
+            <!--            <KeyCycle-->
+            <!--                android:rotation="45"-->
+            <!--                app:framePosition="50"-->
+            <!--                app:motionTarget="@id/view"-->
+            <!--                app:wavePeriod="3"-->
+            <!--                app:waveShape="sin" />-->
+
+            <!--            <KeyCycle-->
+            <!--                android:rotation="0"-->
+            <!--                app:framePosition="100"-->
+            <!--                app:motionTarget="@id/view"-->
+            <!--                app:wavePeriod="3"-->
+            <!--                app:waveShape="sin" />-->
+
+            <!--            <KeyTimeCycle-->
+            <!--                android:rotation="0"-->
+            <!--                app:framePosition="0"-->
+            <!--                app:motionTarget="@id/view"-->
+            <!--                app:wavePeriod="0"-->
+            <!--                app:waveShape="sin" />-->
+
+            <!--            <KeyTimeCycle-->
+            <!--                android:rotation="45"-->
+            <!--                app:framePosition="50"-->
+            <!--                app:motionTarget="@id/view"-->
+            <!--                app:wavePeriod="1"-->
+            <!--                app:waveShape="sin" />-->
+
+            <!--            <KeyTimeCycle-->
+            <!--                android:rotation="0"-->
+            <!--                app:framePosition="100"-->
+            <!--                app:motionTarget="@id/view"-->
+            <!--                app:wavePeriod="0"-->
+            <!--                app:waveShape="sin" />-->
+        </KeyFrameSet>
+    </Transition>
+
+
+
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/view">
+
+            <!--设置运动弧线-->
+            <!--            app:transitionEasing="accelerate"-->
+            <Motion app:pathMotionArc="startVertical" />
+
+            <Layout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--自定义属性修改-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/teal_200" />
+        </Constraint>
+    </ConstraintSet>
+
+
+    <OnClick
+        app:clickAction="toggle"
+        app:targetId="@id/toggle" />
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/view">
+            <Layout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+<!--                        <Transform-->
+<!--                            android:elevation="10dp"-->
+<!--                            android:rotation="360"-->
+<!--                            android:scaleX="1.33"-->
+<!--                            android:scaleY="1.33" />-->
+
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/purple_500" />
+
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>
